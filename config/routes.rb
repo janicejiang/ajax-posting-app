@@ -6,6 +6,13 @@ Rails.application.routes.draw do
   get "/jquery-4" => "pages#jquery_4"
   get "/jquery-5" => "pages#jquery_5"
 
-  root "pages#jquery_1"
+  root "posts#index"
+
+  resources :posts do
+    member do
+      post "like" => "posts#like"
+      post "unlike" => "posts#unlike"
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
