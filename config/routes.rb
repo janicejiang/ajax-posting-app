@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     member do
       post "like" => "posts#like"
       post "unlike" => "posts#unlike"
+      post "collect" => "posts#collect"
+      post "uncollect" => "posts#uncollect"
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
