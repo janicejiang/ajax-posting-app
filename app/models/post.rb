@@ -9,11 +9,21 @@ class Post < ApplicationRecord
   has_many :collects, :dependent => :destroy
   has_many :collected_users, :through => :collects, :source => :user
 
+  has_many :scores, :class_name => "PostScore"
+
   def find_collect(user)
     self.collects.where(:user_id => user.id).first
   end
 
   def find_like(user)
     self.likes.where( :user_id => user.id ).first
+  end
+
+  def find_score(user)
+    user && self.scores.where(:user_id => user.id).first
+  end
+
+  def average_score
+    self.scores.average(:score)
   end
 end

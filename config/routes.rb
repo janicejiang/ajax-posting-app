@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       post "collect" => "posts#collect"
       post "uncollect" => "posts#uncollect"
       post "toggle_flag" => "posts#toggle_flag"
+      post "rate" => "posts#rate"
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
